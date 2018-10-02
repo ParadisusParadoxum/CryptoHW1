@@ -9,11 +9,11 @@
 #include "Encryptor.h"
 #include <algorithm>
 #include <set>
-#include <vector>
+
 #include <cmath>
 
 using std::set;
-using std::vector;
+
 
 struct Pair{
     int m,n;
@@ -118,6 +118,19 @@ string Encryptor::RowTrans(string plainText, string key){
     return cipherText;
 }
 
+string Encryptor::Product(string plainText, vector<int> key){
+    string cipherText = "";
+    // padding
+    while( plainText.length() % key.size() != 0)
+        plainText += 'x';
+    for(int i=0;i<plainText.length();++i){
+        int block = i/key.size(), num = i%key.size();
+        cipherText += plainText[key.size()*block + key[num]-1];
+    }
+    
+    return cipherText;
+}
+
 string Encryptor::Enc(string method, string text, int key){
     if(method == "Caesar")
         return this->Caesar(text, key);
@@ -134,6 +147,12 @@ string Encryptor::Enc(string method, string text, string key){
         return this->Vernam(text, key);
     else if (method == "RowTrans")
         return this->RowTrans(text, key);
+    return "Method not existed";
+}
+
+string Encryptor::Enc(string method, string text, vector<int> key){
+    if(method == "Product")
+        return this->Product(text, key);
     
     return "Method not existed";
 }
