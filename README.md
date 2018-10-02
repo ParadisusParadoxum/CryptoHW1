@@ -18,7 +18,7 @@ B10515016 陳羿凱 解密
 ### Vernam cipher
 
 
-### Row Trasposition 
+### Transposition cipher
 
 
 ### Product cipher
