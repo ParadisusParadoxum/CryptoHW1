@@ -12,11 +12,13 @@ using std::cout;
 using std::endl;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
     Encryptor encryptor;
     string plainText = "keepgoingnevergiveup";
     cout << encryptor.Enc("Caesar", plainText, 7) << endl;
     cout << encryptor.Enc("Monoalphabetic", plainText, "qwertyuiopasdfghjklzxcvbnm") << endl;
+    cout << encryptor.Enc("Playfair","hidethegoldinthetreestump","playfairexample") << endl;
     
+    cout << encryptor.Enc("Vernam","helo","xmcl") << endl;
+    cout << encryptor.Enc("RowTrans", "wearediscoveredfleeatonce", "632415") << endl;
     return 0;
 }

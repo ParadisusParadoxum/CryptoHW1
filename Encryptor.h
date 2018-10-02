@@ -23,4 +23,7 @@ private:
     string Caesar(string, int);
     string Monoalphabetic(string, string);
     string Playfair(string, string);
+    string Vernam(string, string);
+    string RowTrans(string, string);
+    
 };
