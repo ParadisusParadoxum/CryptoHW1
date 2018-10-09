@@ -1,0 +1,26 @@
+// Name: Yi-Kai Chen
+// Date: october 9, 2018
+// Last Update: october 9, 2018
+// Problem statement: CaesarCipher
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	int key;
+	string ciphertext, plaintext;
+	cout << "Please enter ciphertext and the key sequentially. (Use the Enter key to make a distinction.)" << endl;
+	while (cin >> ciphertext >> key) {
+		plaintext = "";
+		for (int i = 0; i < ciphertext.length(); i++) {
+			if (tolower(ciphertext[i]) - key < 'a')
+				ciphertext[i] += 26;
+			plaintext += ciphertext[i] - key;
+		}
+		cout << "The plaintext after decipher via the CaesarCipher algorithm is \"" + plaintext + "\"." << endl << endl;
+		cout << "Please enter plaintext and the key. (Use the Enter key to make a distinction)" << endl;
+	}
+    return 0;
+}
+
